@@ -76,6 +76,8 @@
   .goalpill.warn{background:rgba(214,69,97,.12);color:var(--rose);}
   .changeday{background:var(--sky-soft);border:1px solid rgba(59,154,225,.45);color:var(--blue-d);font-size:14.5px;line-height:1.5;margin-bottom:14px;}
   .changeday b{color:var(--blue-d);}
+  .changeday.alert{background:rgba(214,69,97,.12);border-color:rgba(214,69,97,.55);color:#a3122e;}
+  .changeday.alert b{color:#a3122e;}
   .bonus{margin-top:14px;background:rgba(31,157,107,.12);border:1px solid rgba(31,157,107,.35);color:#14684a;border-radius:13px;padding:12px 14px;font-size:13.5px;line-height:1.5;text-align:left;}
 
   .btn{font-family:var(--body);font-weight:600;font-size:15px;border:none;border-radius:13px;padding:14px 18px;cursor:pointer;transition:transform .05s,background .2s;}
@@ -100,7 +102,41 @@
   .logrow:last-child{border-bottom:none;}
   .logrow .t{font-weight:500;}
   .logrow .m{color:var(--muted);font-size:13px;}
+  .logrow.logentry{align-items:flex-start;}
+  .lleft{display:flex;flex-direction:column;gap:2px;min-width:0;}
+  .lline{display:flex;align-items:center;flex-wrap:wrap;gap:6px;}
+  .lright{display:flex;align-items:center;gap:6px;flex-shrink:0;}
+  .etag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:999px;}
+  .etag.added{background:var(--sky-soft);color:var(--blue-d);}
+  .etag.edited{background:rgba(232,148,58,.18);color:#9a5b14;}
+  .ereason{font-size:12px;color:var(--muted);font-style:italic;}
+  .dots{background:none;border:none;color:var(--muted);font-size:20px;line-height:1;cursor:pointer;padding:0 2px;border-radius:8px;}
+  .dots:hover{color:var(--ink);background:var(--surface-2);}
   .empty{color:var(--muted);font-size:14px;text-align:center;padding:16px 0;}
+  .insight{background:linear-gradient(135deg,var(--blue),var(--sky));color:#fff;border:none;}
+  .ins-top{display:flex;align-items:center;gap:16px;}
+  .ins-streak{text-align:center;flex-shrink:0;}
+  .ins-streak .bignum{font-family:var(--head);font-weight:700;font-size:46px;line-height:1;}
+  .ins-streak .lbl{font-size:11px;opacity:.9;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;}
+  .ins-mini{display:grid;grid-template-columns:1fr 1fr;gap:8px 10px;flex:1;}
+  .ins-mini div{background:rgba(255,255,255,.16);border-radius:10px;padding:7px 9px;}
+  .ins-mini b{font-family:var(--head);font-weight:600;font-size:16px;display:block;}
+  .ins-mini span{font-size:10.5px;opacity:.9;}
+  .ins-motiv{margin-top:14px;background:rgba(255,255,255,.16);border-radius:12px;padding:11px 13px;font-size:13.5px;line-height:1.5;}
+  .chartlegend{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px;font-size:11px;color:var(--muted);}
+  .chartlegend span{display:flex;align-items:center;gap:5px;}
+  .chartlegend i{width:11px;height:11px;border-radius:3px;display:inline-block;}
+  .chartlegend i.dash{width:14px;height:0;border-top:2px dashed var(--blue);border-radius:0;}
+  .seg{display:flex;background:var(--surface-2);border-radius:10px;padding:3px;gap:2px;margin-bottom:14px;}
+  .seg button{flex:1;border:none;background:none;font-family:var(--body);font-size:13px;font-weight:600;color:var(--muted);padding:7px 0;border-radius:8px;cursor:pointer;}
+  .seg button.active{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(16,42,67,.12);}
+  .chart-head{margin-bottom:6px;}
+  .ch-avg-l{font-size:11px;letter-spacing:.07em;color:var(--muted);font-weight:600;text-transform:uppercase;}
+  .ch-avg{font-family:var(--head);font-weight:700;font-size:30px;color:var(--ink);line-height:1.1;}
+  .ch-avg small{font-family:var(--body);font-weight:500;font-size:14px;color:var(--muted);margin-left:6px;}
+  .ch-range{font-size:12.5px;color:var(--muted);margin-top:2px;}
+  .row2 .btn{flex:1;}
+  .btn.recording{background:var(--rose);color:#fff;border-color:var(--rose);}
 
   /* analytics */
   .period-grid{display:flex;flex-direction:column;gap:14px;}
@@ -133,6 +169,8 @@
   .setgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;}
   .setbox{border:1px solid var(--line);background:var(--surface-2);border-radius:12px;padding:12px;font-size:13px;}
   .setbox.cur{border-color:var(--sky);background:var(--sky-soft);}
+  .setbox.perfect{border-color:var(--green);background:rgba(31,157,107,.10);}
+  .tag.perfect{background:var(--green);color:#fff;}
   .setbox .sn{font-family:var(--head);font-weight:600;font-size:14px;display:flex;justify-content:space-between;align-items:center;}
   .setbox .when{color:var(--muted);font-size:11.5px;margin-top:4px;}
   .tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:999px;}
@@ -163,6 +201,7 @@
   .cblabel{font-size:12px;color:var(--muted);font-weight:600;margin:14px 0 5px;display:block;}
   .cbin{width:100%;border:1px solid var(--line);border-radius:11px;padding:11px 12px;font-family:var(--body);font-size:15px;background:var(--surface-2);color:var(--ink);}
   .cbin:focus{outline:2px solid rgba(27,111,179,.3);border-color:var(--blue);}
+  select.cbin{appearance:none;-webkit-appearance:none;}
 
   .running{position:fixed;inset:0;background:var(--blue);color:#fff;display:none;flex-direction:column;align-items:center;justify-content:center;z-index:80;padding:24px;text-align:center;}
   .running.show{display:flex;}
@@ -233,7 +272,8 @@
         </div>
         <div class="card">
           <button class="btn btn-primary btn-block" id="startBtn">Start a break</button>
-          <div class="hint">Trays come out only to eat or drink anything except water. Tap when you take them out — the timer counts your minutes and warns you 5 minutes before your limit.</div>
+          <button class="btn btn-ghost btn-block" id="manualBtn" style="margin-top:10px;">Add a past break</button>
+          <div class="hint">Trays come out only to eat or drink anything except water. Tap when you take them out — the timer counts your minutes and warns you 5 minutes before your limit. Forgot to log one? Use “Add a past break”.</div>
         </div>
       </div>
 
@@ -252,32 +292,44 @@
 
   <!-- ANALYTICS -->
   <section class="view" id="view-analytics">
-    <div class="period-grid" style="margin-top:18px;">
+    <div class="card insight" id="insightCard" style="margin-top:16px;"></div>
+
+    <div class="card" style="margin-top:16px;">
+      <div class="seg" id="chartSeg">
+        <button data-p="W" class="active">W</button>
+        <button data-p="M">M</button>
+        <button data-p="6M">6M</button>
+        <button data-p="Y">Y</button>
+      </div>
+      <div class="chart-head">
+        <div class="ch-avg-l">Average wear</div>
+        <div class="ch-avg"><span id="chAvg">0.0</span><small>h / day</small></div>
+        <div class="ch-range" id="chRange">—</div>
+      </div>
+      <div id="wearChart"></div>
+      <div class="chartlegend">
+        <span><i style="background:var(--green)"></i>22h+</span>
+        <span><i style="background:var(--amber)"></i>20–22h</span>
+        <span><i style="background:var(--rose)"></i>under 20h</span>
+        <span><i class="dash"></i>22h goal</span>
+      </div>
+    </div>
+
+    <div class="period-grid" style="margin-top:16px;">
       <div class="pcard" id="pcToday"></div>
       <div class="pcard" id="pcWeek"></div>
       <div class="pcard" id="pcMonth"></div>
       <div class="pcard" id="pcYear"></div>
     </div>
 
-    <div class="grid-2">
-      <div class="stack">
-        <div class="card">
-          <h2>Streak</h2>
-          <div class="streakbox">
-            <div><div class="streak" id="streakNum">0</div><div class="streakl">current · days at 22h+</div></div>
-            <div class="sdiv"></div>
-            <div><div class="streak" id="bestNum" style="color:var(--green);">0</div><div class="streakl">personal best</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <h2>Daily history</h2>
-          <div id="historyList"></div>
-        </div>
-      </div>
-      <div class="card">
-        <h2>All 24 sets</h2>
-        <div class="setgrid" id="setList"></div>
-      </div>
+    <div class="card" style="margin-top:16px;">
+      <h2>Daily history</h2>
+      <div id="historyList"></div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <h2>All 24 sets</h2>
+      <div class="setgrid" id="setList"></div>
     </div>
   </section>
 
@@ -285,9 +337,13 @@
   <section class="view" id="view-notes">
     <div class="card" style="margin-top:18px;max-width:640px;">
       <h2>Notes &amp; feedback</h2>
-      <p class="hint" style="margin-top:0;">Write anything — questions, what's working, what to change. It's saved here for you to read and review anytime.</p>
-      <textarea id="noteInput" placeholder="e.g. Chai break feels too short on busy days…"></textarea>
-      <button class="btn btn-primary btn-sm" id="addNote" style="margin-top:10px;">Save note</button>
+      <p class="hint" style="margin-top:0;">Write or record anything — questions, what's working, what to change. It's saved here for you to read and review anytime.</p>
+      <textarea id="noteInput" placeholder="e.g. Chai break feels too short on busy days… (optional caption for a voice note)"></textarea>
+      <div class="row2" style="margin-top:10px;">
+        <button class="btn btn-primary btn-sm" id="addNote">Save note</button>
+        <button class="btn btn-ghost btn-sm" id="recBtn">🎤 Record voice</button>
+      </div>
+      <div id="recStatus" class="hint" style="display:none;"></div>
       <div id="noteList" style="margin-top:6px;"></div>
     </div>
   </section>
@@ -364,7 +420,59 @@
         <button class="btn btn-primary btn-block" id="cbStart">Start break</button>
       </div>
     </div>
+    <div id="manualForm" style="display:none;">
+      <label class="cblabel">Break</label>
+      <select id="mfType" class="cbin"></select>
+      <label class="cblabel">Minutes</label>
+      <input id="mfMin" class="cbin" type="number" min="1" max="120" value="20" />
+      <label class="cblabel">Day</label>
+      <input id="mfDate" class="cbin" type="date" />
+      <div class="row2" style="margin-top:16px;">
+        <button class="btn btn-ghost btn-block" id="mfBack">Back</button>
+        <button class="btn btn-primary btn-block" id="mfSave">Add break</button>
+      </div>
+    </div>
     <button class="btn btn-ghost btn-block" id="cancelPick" style="margin-top:14px;">Cancel</button>
+  </div>
+</div>
+
+<div class="sheet" id="reviewSheet">
+  <div class="sheetcard">
+    <h3>Unfinished break</h3>
+    <p class="sub" id="rvText"></p>
+    <label class="cblabel">How many minutes was it?</label>
+    <input id="rvMin" class="cbin" type="number" min="1" max="240" value="20" />
+    <div class="row2" style="margin-top:16px;">
+      <button class="btn btn-ghost btn-block" id="rvDiscard">Discard</button>
+      <button class="btn btn-primary btn-block" id="rvSave">Log it</button>
+    </div>
+  </div>
+</div>
+
+<div class="sheet" id="entryMenu">
+  <div class="sheetcard">
+    <h3>Entry options</h3>
+    <p class="sub" id="emText"></p>
+    <button class="btn btn-ghost btn-block" id="emEdit">Edit entry</button>
+    <button class="btn btn-ghost btn-block" id="emDelete" style="margin-top:10px;color:var(--rose);border-color:rgba(214,69,97,.4);">Delete entry</button>
+    <button class="btn btn-ghost btn-block" id="emCancel" style="margin-top:10px;">Cancel</button>
+  </div>
+</div>
+
+<div class="sheet" id="editSheet">
+  <div class="sheetcard">
+    <h3>Edit break</h3>
+    <p class="sub">Editing or adding a past break twice in one day pauses that day's streak — try to log live.</p>
+    <label class="cblabel">Break</label>
+    <select id="edType" class="cbin"></select>
+    <label class="cblabel">Minutes</label>
+    <input id="edMin" class="cbin" type="number" min="1" max="120" />
+    <label class="cblabel">Reason for editing (optional)</label>
+    <input id="edReason" class="cbin" maxlength="60" placeholder="e.g. forgot to stop the timer" />
+    <div class="row2" style="margin-top:16px;">
+      <button class="btn btn-ghost btn-block" id="edCancel">Cancel</button>
+      <button class="btn btn-primary btn-block" id="edSave">Save changes</button>
+    </div>
   </div>
 </div>
 
@@ -381,7 +489,7 @@
 
 <script>
 /* ---------- config ---------- */
-const START = new Date(2026,5,7);
+const START = new Date(2026,5,8);
 const SETS = 24, DAYS = 12, BUDGET = 120, TOTAL_DAYS = SETS*DAYS;
 const TARGET_H = 22;
 const BREAKS = {Breakfast:25, Lunch:25, Dinner:25, Snack:25, Chai:20};
@@ -392,12 +500,24 @@ const ACTIVE = "aligner.active.v2";
 
 /* ---------- storage ---------- */
 function load(){ try{return JSON.parse(localStorage.getItem(STORE))||{};}catch(e){return {};} }
-function save(d){ localStorage.setItem(STORE, JSON.stringify(d)); }
+function save(d){ try{ localStorage.setItem(STORE, JSON.stringify(d)); }catch(e){ try{ toast("Storage full — delete some voice notes"); }catch(_){} } }
 let data = load();
 data.logs = data.logs || {};
 data.notes = data.notes || [];
 data.ackDayMs = data.ackDayMs || {};
 data.customBreaks = data.customBreaks || [];
+
+/* ids + per-day intervention counter (for streak penalty) */
+let _idc = Date.now();
+function uid(){ return "b"+(_idc++).toString(36)+Math.floor(Math.random()*46656).toString(36); }
+Object.keys(data.logs).forEach(k=>{
+  const day=data.logs[k];
+  if(day.interventions===undefined) day.interventions=0;
+  (day.breaks||[]).forEach(b=>{ if(!b.id) b.id=uid(); });
+});
+function taintDay(k){ data.logs[k]=data.logs[k]||{breaks:[]}; data.logs[k].interventions=(data.logs[k].interventions||0)+1; }
+function isTainted(k){ return !!(data.logs[k] && (data.logs[k].interventions||0)>=2); }
+function findEntry(dayKey,id){ const d=data.logs[dayKey]; if(!d) return null; return (d.breaks||[]).find(b=>b.id===id)||null; }
 
 /* preset + custom breaks merged */
 function allBreaks(){ const m=Object.assign({},BREAKS); (data.customBreaks||[]).forEach(c=>{m[c.name]=c.min;}); return m; }
@@ -464,7 +584,7 @@ function computeStreak(){
   let streak=0,d=new Date();
   for(let i=0;i<500;i++){
     const k=key(d);
-    if(isTracked(k)){ if(dayMetrics(k).hit) streak++; else break; }
+    if(isTracked(k)){ if(dayMetrics(k).hit && !isTainted(k)) streak++; else break; }
     else if(i===0){ /* today not logged yet */ }
     else break;
     d=addDays(d,-1);
@@ -490,12 +610,16 @@ function renderHeader(){
   }
 
   const cb=document.getElementById("changeBanner");
-  if(!ci.before && !ci.done && ci.isChangeDay){
-    cb.style.display="";
+  if(!ci.before && !ci.done && ci.dayInSet===DAYS-1){
+    cb.style.display=""; cb.className="card changeday alert";
+    if(ci.setNum>=SETS) cb.innerHTML='⚠ <b>1 day left!</b> Treatment finishes tomorrow night after Set '+SETS+'.';
+    else cb.innerHTML='⚠ <b>1 day left on Set '+ci.setNum+'.</b> You’ll change to <b>Set '+(ci.setNum+1)+'</b> tomorrow night.';
+  } else if(!ci.before && !ci.done && ci.isChangeDay){
+    cb.style.display=""; cb.className="card changeday";
     if(ci.setNum>=SETS){
       cb.innerHTML='<b>Final day of treatment!</b> Finish today wearing Set '+SETS+' — you made it through all 24. 🎉';
     } else {
-      cb.innerHTML='<b>Change day — Day 12 of Set '+ci.setNum+'.</b> Switch to <b>Set '+(ci.setNum+1)+'</b> today after your last wear.';
+      cb.innerHTML='<b>Change day — Day 12 of Set '+ci.setNum+'.</b> Wear it all day, then switch to <b>Set '+(ci.setNum+1)+'</b> tonight before bed.';
     }
   } else {
     cb.style.display="none";
@@ -593,9 +717,16 @@ function renderToday(){
   if(!list.length){ tl.innerHTML='<div class="empty">No breaks yet today.</div>'; }
   else {
     list.slice().reverse().forEach(b=>{
-      const r=document.createElement("div"); r.className="logrow";
+      const r=document.createElement("div"); r.className="logrow logentry";
       const time=new Date(b.at).toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit"});
-      r.innerHTML='<span class="t">'+b.type+'</span><span class="m">'+b.min+' min · '+time+'</span>';
+      let tags="";
+      if(b.manual) tags+='<span class="etag added">added later</span>';
+      if(b.edited) tags+='<span class="etag edited">edited</span>';
+      const reason=b.reason?('<div class="ereason">“'+escapeHtml(b.reason)+'”</div>'):"";
+      r.innerHTML='<div class="lleft"><div class="lline"><span class="t">'+escapeHtml(b.type)+'</span>'+tags+'</div>'+reason+'</div>'+
+                  '<div class="lright"><span class="m">'+b.min+' min · '+time+'</span>'+
+                  '<button class="dots" aria-label="options">&#8942;</button></div>';
+      r.querySelector(".dots").onclick=()=>openEntryMenu(todayKey(), b.id);
       tl.appendChild(r);
     });
   }
@@ -627,6 +758,91 @@ function periodCard(elId, title, sub, stats, isToday){
 function statRow(label,val,big){
   return '<div class="pstat"><span class="pl">'+label+'</span><span class="pv'+(big?' big':'')+'">'+val+'</span></div>';
 }
+function renderInsights(){
+  const st=computeStreak();
+  const best=Math.max(data.bestStreak||0, st);
+  const perfectDays=complianceDaysTotal();
+  const today=new Date(), yest=addDays(today,-1);
+  const overall=periodStats(START, yest);
+  const last7=periodStats(addDays(today,-7), yest);
+  const compTxt = overall.n ? Math.round(overall.comp)+"%" : "—";
+  let motiv;
+  if(st>=7) motiv="🔥 "+st+" days strong — this is a real habit now. Protect the streak!";
+  else if(st>=3) motiv="Great momentum — "+st+" days in a row. Keep it rolling!";
+  else if(st>0) motiv=st+"-day streak going. "+(best>st?("Beat your best of "+best+"!"):"Build a new record!");
+  else if(perfectDays>0) motiv="Fresh start — one full 22h day today begins a new streak.";
+  else motiv="Track every break today to start your streak.";
+  document.getElementById("insightCard").innerHTML=
+    '<div class="ins-top">'+
+      '<div class="ins-streak"><div class="bignum">'+st+'</div><div class="lbl">day streak</div></div>'+
+      '<div class="ins-mini">'+
+        '<div><b>'+best+'</b><span>best streak</span></div>'+
+        '<div><b>'+perfectDays+'</b><span>perfect days</span></div>'+
+        '<div><b>'+compTxt+'</b><span>avg compliance</span></div>'+
+        '<div><b>'+last7.hits+'/7</b><span>last 7 days</span></div>'+
+      '</div>'+
+    '</div>'+
+    '<div class="ins-motiv">'+motiv+'</div>';
+}
+
+let chartPeriod='W';
+function rangeFor(p){
+  const today=new Date(); let from;
+  if(p==='W') from=addDays(today,-6);
+  else if(p==='M') from=addDays(today,-29);
+  else if(p==='6M') from=addDays(today,-181);
+  else from=addDays(today,-364);
+  return {from,to:today};
+}
+function chartBars(p){
+  const today=new Date();
+  if(p==='W'||p==='M'){
+    const days=p==='W'?7:30, bars=[];
+    for(let i=days-1;i>=0;i--){ const d=addDays(today,-i); const k=key(d); const tr=isTracked(k); const m=tr?dayMetrics(k):null; bars.push({val:m?m.wearH:0,tracked:tr,hit:m?m.hit:false,label:String(d.getDate())}); }
+    return {bars,labelEvery:p==='W'?1:5};
+  }
+  if(p==='6M'){
+    const weeks=26, bars=[];
+    for(let w=weeks-1;w>=0;w--){ const end=addDays(today,-w*7), start=addDays(end,-6); let tw=0,n=0; for(let i=0;i<7;i++){ const k=key(addDays(start,i)); if(isTracked(k)){ tw+=dayMetrics(k).wearH; n++; } } const v=n?tw/n:0; bars.push({val:v,tracked:n>0,hit:n?v>=22:false,label:String(start.getDate())}); }
+    return {bars,labelEvery:5};
+  }
+  const MN=['J','F','M','A','M','J','J','A','S','O','N','D'], bars=[];
+  for(let mo=11;mo>=0;mo--){ const dt=new Date(today.getFullYear(),today.getMonth()-mo,1); const y=dt.getFullYear(),mi=dt.getMonth(); const dim=new Date(y,mi+1,0).getDate(); let tw=0,n=0; for(let dd=1;dd<=dim;dd++){ const k=key(new Date(y,mi,dd)); if(isTracked(k)){ tw+=dayMetrics(k).wearH; n++; } } const v=n?tw/n:0; bars.push({val:v,tracked:n>0,hit:n?v>=22:false,label:MN[mi]}); }
+  return {bars,labelEvery:2};
+}
+function renderChart(){
+  document.querySelectorAll("#chartSeg button").forEach(b=>b.classList.toggle("active",b.dataset.p===chartPeriod));
+  const {from,to}=rangeFor(chartPeriod);
+  const ps=periodStats(from,to);
+  document.getElementById("chAvg").textContent = ps.n ? ps.avgWear.toFixed(1) : "0.0";
+  document.getElementById("chRange").textContent = fmt(from)+" – "+fmt(to);
+  const {bars,labelEvery}=chartBars(chartPeriod);
+  const W=340,H=190, top=14, bot=150, left=6, right=30;
+  const plotW=W-left-right, yMax=24, n=bars.length, slot=plotW/n, bw=Math.max(2,slot*0.6);
+  const y=v=> top+(1-v/yMax)*(bot-top);
+  let grid="";
+  [0,12,24].forEach(g=>{ const yy=y(g); grid+='<line x1="'+left+'" y1="'+yy.toFixed(1)+'" x2="'+(W-right)+'" y2="'+yy.toFixed(1)+'" stroke="#e1eaf2" stroke-width="1"/><text x="'+(W-right+5)+'" y="'+(yy+3).toFixed(1)+'" font-size="9" fill="#5b7388" font-family="Inter">'+g+'</text>'; });
+  const ty=y(22);
+  const target='<line x1="'+left+'" y1="'+ty.toFixed(1)+'" x2="'+(W-right)+'" y2="'+ty.toFixed(1)+'" stroke="#1b6fb3" stroke-width="1" stroke-dasharray="4 3" opacity="0.7"/>';
+  let barsSvg="",labels="";
+  bars.forEach((a,i)=>{
+    const cx=left+slot*i+slot/2, x=cx-bw/2;
+    if(!a.tracked){ barsSvg+='<rect x="'+x.toFixed(1)+'" y="'+(bot-2.5)+'" width="'+bw.toFixed(1)+'" height="2.5" rx="1.2" fill="#e1eaf2"/>'; }
+    else { const yy=y(a.val), h=Math.max(2,bot-yy); const col=a.hit?"#1f9d6b":(a.val>=20?"#e8943a":"#d64561"); barsSvg+='<rect x="'+x.toFixed(1)+'" y="'+yy.toFixed(1)+'" width="'+bw.toFixed(1)+'" height="'+h.toFixed(1)+'" rx="'+Math.min(3,bw/2).toFixed(1)+'" fill="'+col+'"/>'; }
+    if(i%labelEvery===0 || i===n-1){ labels+='<text x="'+cx.toFixed(1)+'" y="'+(H-6)+'" text-anchor="middle" font-size="9" fill="#5b7388" font-family="Inter">'+a.label+'</text>'; }
+  });
+  document.getElementById("wearChart").innerHTML='<svg viewBox="0 0 '+W+' '+H+'" width="100%" style="display:block">'+grid+target+barsSvg+labels+'</svg>';
+}
+
+function setPerfect(s){
+  const sStart=addDays(START,(s-1)*DAYS);
+  for(let i=0;i<DAYS;i++){
+    const k=key(addDays(sStart,i));
+    if(!isTracked(k) || !dayMetrics(k).hit) return false;
+  }
+  return true;
+}
+
 function renderAnalytics(){
   const today=new Date();
   const yest=addDays(today,-1);
@@ -636,8 +852,8 @@ function renderAnalytics(){
   periodCard("pcMonth","This month", today.toLocaleDateString("en-GB",{month:"long"}), periodStats(monthStart, yest));
   periodCard("pcYear","Overall","Whole treatment so far", periodStats(START, yest));
 
-  document.getElementById("streakNum").textContent=computeStreak();
-  document.getElementById("bestNum").textContent=data.bestStreak||0;
+  renderInsights();
+  renderChart();
 
   const keys = Object.keys(data.logs).sort().reverse();
   const hl=document.getElementById("historyList"); hl.innerHTML="";
@@ -647,8 +863,9 @@ function renderAnalytics(){
     const d=new Date(k+"T00:00:00");
     const ci=courseInfo(d);
     const row=document.createElement("div"); row.className="hday";
+    const tnote = isTainted(k) ? ' · <span style="color:var(--amber)">streak skipped</span>' : '';
     row.innerHTML='<div><div class="d">'+fmtShort(d)+'</div><div class="ds">'+
-      (ci.before?"":"Set "+ci.setNum+" · day "+ci.dayInSet)+' · '+m.breakMin+' min off</div></div>'+
+      (ci.before?"":"Set "+ci.setNum+" · day "+ci.dayInSet)+' · '+m.breakMin+' min off'+tnote+'</div></div>'+
       '<div class="hbadge '+(m.hit?"ok":"bad")+'">'+m.wearH.toFixed(1)+'h</div>';
     hl.appendChild(row);
   });
@@ -659,8 +876,10 @@ function renderAnalytics(){
     const sStart=addDays(START,(s-1)*DAYS);
     const sEnd=addDays(sStart,DAYS-1);
     const box=document.createElement("div"); box.className="setbox";
+    const perfect=setPerfect(s);
     let tag="";
-    if(!cur.before && !cur.done){
+    if(perfect){ box.classList.add("perfect"); tag='<span class="tag perfect">✓ 100%</span>'; }
+    else if(!cur.before && !cur.done){
       if(s<cur.setNum) tag='<span class="tag done">done</span>';
       else if(s===cur.setNum){ tag='<span class="tag now">now</span>'; box.classList.add("cur"); }
     }
@@ -675,7 +894,10 @@ function renderNotes(){
   if(!data.notes.length){ nl.innerHTML='<div class="empty">No notes yet.</div>'; return; }
   data.notes.slice().reverse().forEach(n=>{
     const el=document.createElement("div"); el.className="note";
-    el.innerHTML='<div class="ts">'+new Date(n.ts).toLocaleString("en-GB",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})+'</div>'+escapeHtml(n.text);
+    let html='<div class="ts">'+new Date(n.ts).toLocaleString("en-GB",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})+(n.audio?(' · 🎤 '+(n.dur||0)+'s'):'')+'</div>';
+    if(n.text) html+='<div>'+escapeHtml(n.text)+'</div>';
+    if(n.audio) html+='<audio controls preload="none" src="'+n.audio+'" style="width:100%;margin-top:8px;"></audio>';
+    el.innerHTML=html;
     nl.appendChild(el);
   });
 }
@@ -692,6 +914,7 @@ function openPick(){
 }
 function showPickGrid(){
   document.getElementById("customForm").style.display="none";
+  document.getElementById("manualForm").style.display="none";
   document.getElementById("pickTitle").textContent="Which break is this?";
   document.getElementById("pickSub").textContent="Pick one. The timer starts straight away.";
   const grid=document.getElementById("pickGrid"); grid.style.display=""; grid.innerHTML="";
@@ -711,12 +934,129 @@ function showPickGrid(){
 }
 function showCustomForm(){
   document.getElementById("pickGrid").style.display="none";
+  document.getElementById("manualForm").style.display="none";
   document.getElementById("customForm").style.display="";
   document.getElementById("pickTitle").textContent="Add a custom break";
   document.getElementById("pickSub").textContent="Name it and set how many minutes it's allowed.";
   document.getElementById("cbName").value="";
   document.getElementById("cbMin").value="20";
   document.getElementById("cbName").focus();
+}
+
+/* manual / past break entry */
+function openManual(){
+  document.getElementById("pickSheet").classList.add("show");
+  showManualForm();
+}
+function showManualForm(){
+  document.getElementById("pickGrid").style.display="none";
+  document.getElementById("customForm").style.display="none";
+  document.getElementById("manualForm").style.display="";
+  document.getElementById("pickTitle").textContent="Add a past break";
+  document.getElementById("pickSub").textContent="Log a break you forgot to track earlier.";
+  const merged=allBreaks();
+  const sel=document.getElementById("mfType"); sel.innerHTML="";
+  Object.keys(merged).forEach(t=>{ const o=document.createElement("option"); o.value=t; o.textContent=t+" ("+merged[t]+" min)"; sel.appendChild(o); });
+  sel.onchange=()=>{ const m=allBreaks()[sel.value]; if(m) document.getElementById("mfMin").value=m; };
+  document.getElementById("mfMin").value=merged[sel.value]||20;
+  const dEl=document.getElementById("mfDate");
+  dEl.value=todayKey(); dEl.min=key(START); dEl.max=todayKey();
+}
+function saveManual(){
+  const type=document.getElementById("mfType").value;
+  const min=parseInt(document.getElementById("mfMin").value,10);
+  const dstr=document.getElementById("mfDate").value;
+  if(!type){ toast("Pick a break"); return; }
+  if(!(min>=1 && min<=120)){ toast("Minutes must be between 1 and 120"); return; }
+  if(!dstr){ toast("Pick a day"); return; }
+  data.logs[dstr]=data.logs[dstr]||{breaks:[]};
+  const at = dstr===todayKey() ? Date.now() : new Date(dstr+"T12:00:00").getTime();
+  data.logs[dstr].breaks.push({id:uid(), type, min, at, manual:true});
+  taintDay(dstr);
+  save(data);
+  closePick(); renderAll();
+  const tnote = isTainted(dstr) ? " · streak paused for that day" : "";
+  toast(min+" min added · "+(dstr===todayKey()?"today":fmtShort(new Date(dstr+"T00:00:00")))+tnote);
+  checkProgress();
+}
+
+/* review an unfinished / forgotten break */
+let reviewCtx=null;
+function openReview(type,startTs,suggested){
+  reviewCtx={type,startTs};
+  const t=new Date(startTs).toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit"});
+  const sameDay = key(new Date(startTs))===todayKey();
+  document.getElementById("rvText").textContent="Your "+type+" break started at "+t+(sameDay?"":" on "+fmtShort(new Date(startTs)))+" and wasn't closed. About how long was it?";
+  document.getElementById("rvMin").value=suggested;
+  document.getElementById("reviewSheet").classList.add("show");
+}
+function closeReview(){ document.getElementById("reviewSheet").classList.remove("show"); reviewCtx=null; }
+function reviewSave(){
+  if(!reviewCtx) return closeReview();
+  const min=parseInt(document.getElementById("rvMin").value,10);
+  if(!(min>=1 && min<=240)){ toast("Enter valid minutes"); return; }
+  const dk=key(new Date(reviewCtx.startTs));
+  data.logs[dk]=data.logs[dk]||{breaks:[]};
+  data.logs[dk].breaks.push({id:uid(), type:reviewCtx.type, min, at:reviewCtx.startTs});
+  save(data);
+  active=null; persistActive(); clearInterval(tick);
+  document.getElementById("running").classList.remove("show");
+  closeReview(); renderAll(); toast(min+" min logged"); checkProgress();
+}
+function reviewDiscard(){
+  active=null; persistActive(); clearInterval(tick);
+  document.getElementById("running").classList.remove("show");
+  closeReview(); renderAll(); toast("Break discarded");
+}
+
+/* entry options: edit / delete (today's entries) */
+let menuCtx=null, editCtx=null;
+function openEntryMenu(dayKey,id){
+  menuCtx={dayKey,id};
+  const e=findEntry(dayKey,id);
+  document.getElementById("emText").textContent = e ? (e.type+" · "+e.min+" min") : "";
+  document.getElementById("entryMenu").classList.add("show");
+}
+function closeEntryMenu(){ document.getElementById("entryMenu").classList.remove("show"); }
+function openEditFromMenu(){
+  if(!menuCtx) return;
+  const e=findEntry(menuCtx.dayKey,menuCtx.id);
+  if(!e){ closeEntryMenu(); return; }
+  editCtx={dayKey:menuCtx.dayKey,id:menuCtx.id};
+  const sel=document.getElementById("edType"); sel.innerHTML="";
+  const merged=allBreaks();
+  const types=Object.keys(merged); if(types.indexOf(e.type)<0) types.unshift(e.type);
+  types.forEach(t=>{ const o=document.createElement("option"); o.value=t; o.textContent=t+(merged[t]?(" ("+merged[t]+" min)"):""); if(t===e.type)o.selected=true; sel.appendChild(o); });
+  document.getElementById("edMin").value=e.min;
+  document.getElementById("edReason").value=e.reason||"";
+  closeEntryMenu();
+  document.getElementById("editSheet").classList.add("show");
+}
+function closeEdit(){ document.getElementById("editSheet").classList.remove("show"); editCtx=null; }
+function saveEdit(){
+  if(!editCtx) return closeEdit();
+  const e=findEntry(editCtx.dayKey,editCtx.id);
+  if(!e){ closeEdit(); return; }
+  const type=document.getElementById("edType").value;
+  const min=parseInt(document.getElementById("edMin").value,10);
+  const reason=document.getElementById("edReason").value.trim();
+  if(!(min>=1 && min<=120)){ toast("Minutes must be between 1 and 120"); return; }
+  const dk=editCtx.dayKey;
+  e.type=type; e.min=min; e.edited=true; if(reason) e.reason=reason;
+  taintDay(dk);
+  save(data);
+  const tainted=isTainted(dk);
+  closeEdit(); renderAll(); checkProgress();
+  toast(tainted ? "Saved · streak paused for today" : "Changes saved");
+}
+function deleteEntry(){
+  if(!menuCtx) return;
+  const dk=menuCtx.dayKey, id=menuCtx.id;
+  closeEntryMenu();
+  if(confirm("Delete this entry? This won't affect your streak.")){
+    const d=data.logs[dk];
+    if(d){ d.breaks=(d.breaks||[]).filter(b=>b.id!==id); save(data); renderAll(); checkProgress(); toast("Entry deleted"); }
+  }
 }
 function removeCustom(name){
   data.customBreaks=(data.customBreaks||[]).filter(c=>c.name!==name);
@@ -784,10 +1124,17 @@ function mmss(s){const m=Math.floor(s/60);return pad(m)+":"+pad(s%60);}
 
 function endBreak(){
   if(!active){document.getElementById("running").classList.remove("show");return;}
-  const mins=Math.max(1, Math.round((Date.now()-active.start)/60000));
+  const elapsedMin=(Date.now()-active.start)/60000;
+  if(elapsedMin > Math.max(active.limit+10, 30)){
+    document.getElementById("running").classList.remove("show");
+    clearInterval(tick);
+    openReview(active.type, active.start, active.limit);
+    return;
+  }
+  const mins=Math.max(1, Math.round(elapsedMin));
   const tk=todayKey();
   data.logs[tk]=data.logs[tk]||{breaks:[]};
-  data.logs[tk].breaks.push({type:active.type, min:mins, at:Date.now()});
+  data.logs[tk].breaks.push({id:uid(), type:active.type, min:mins, at:Date.now()});
   save(data);
   active=null; persistActive();
   clearInterval(tick);
@@ -808,25 +1155,34 @@ function primeAudio(){
   }catch(e){}
 }
 function alarm(){
-  if(navigator.vibrate) navigator.vibrate([400,150,400,150,400]);
-  beep();
+  if(navigator.vibrate) navigator.vibrate([500,180,500,180,500,180,700]);
+  siren();
   if("Notification" in window && Notification.permission==="granted"){
-    try{ new Notification("5 minutes left", {body:"Finish your "+active.type+" and put the aligners back in."}); }catch(e){}
+    try{ new Notification("⏰ Time's up — trays back in!", {body:"Finish your "+(active?active.type:"")+" break and put the aligners back in now.", requireInteraction:true}); }catch(e){}
   }
 }
-function beep(){
+function siren(){
   try{
     audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();
     if(audioCtx.state==="suspended") audioCtx.resume();
-    [0,0.5,1.0].forEach(t=>{
-      const o=audioCtx.createOscillator(),g=audioCtx.createGain();
-      o.connect(g);g.connect(audioCtx.destination);
-      o.frequency.value=880;o.type="sine";
-      const s=audioCtx.currentTime+t;
+    // compressor to push perceived loudness up without hard clipping
+    const comp=audioCtx.createDynamicsCompressor();
+    comp.threshold.value=-18; comp.ratio.value=12; comp.attack.value=0.002; comp.release.value=0.1;
+    const master=audioCtx.createGain(); master.gain.value=0.9;
+    comp.connect(master); master.connect(audioCtx.destination);
+    const now=audioCtx.currentTime;
+    // alternating two-tone "nee-naw" siren, harsh square wave, 6 sweeps
+    const tones=[1046,1397,1046,1397,1046,1397];
+    tones.forEach((f,i)=>{
+      const o=audioCtx.createOscillator(), g=audioCtx.createGain();
+      o.type="square"; o.frequency.value=f;
+      o.connect(g); g.connect(comp);
+      const s=now+i*0.22, e=s+0.2;
       g.gain.setValueAtTime(0.0001,s);
-      g.gain.exponentialRampToValueAtTime(0.4,s+0.03);
-      g.gain.exponentialRampToValueAtTime(0.0001,s+0.32);
-      o.start(s);o.stop(s+0.34);
+      g.gain.exponentialRampToValueAtTime(0.8,s+0.02);
+      g.gain.setValueAtTime(0.8,e-0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001,e);
+      o.start(s); o.stop(e+0.02);
     });
   }catch(e){}
 }
@@ -865,7 +1221,7 @@ function checkProgress(){
     if(cd>=m && !data.ackDayMs[m]){ data.ackDayMs[m]=true; toast(m+" compliant days! Amazing work."); confetti(); fired=true; }
   });
   save(data);
-  if(fired){ document.getElementById("bestNum").textContent=data.bestStreak||0; }
+  if(fired){ renderInsights(); }
 }
 function confetti(){
   const cv=document.createElement("canvas"); cv.className="confetti";
@@ -891,6 +1247,43 @@ document.getElementById("addNote").onclick=()=>{
   document.getElementById("noteInput").value="";
   renderNotes(); toast("Note saved");
 };
+
+/* voice notes */
+let mediaRec=null, recChunks=[], recTimer=null, recStart=0;
+async function toggleRecord(){
+  if(mediaRec && mediaRec.state==="recording"){ stopRecord(); return; }
+  if(!navigator.mediaDevices || !window.MediaRecorder){ toast("Recording not supported here"); return; }
+  try{
+    const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+    recChunks=[]; mediaRec=new MediaRecorder(stream);
+    mediaRec.ondataavailable=e=>{ if(e.data && e.data.size) recChunks.push(e.data); };
+    mediaRec.onstop=()=>{
+      stream.getTracks().forEach(t=>t.stop());
+      const blob=new Blob(recChunks,{type:(mediaRec&&mediaRec.mimeType)||"audio/webm"});
+      const dur=Math.max(1,Math.round((Date.now()-recStart)/1000));
+      const reader=new FileReader();
+      reader.onload=()=>saveVoiceNote(reader.result,dur);
+      reader.readAsDataURL(blob);
+    };
+    mediaRec.start(); recStart=Date.now();
+    const rb=document.getElementById("recBtn"); rb.textContent="⏹ Stop"; rb.classList.add("recording");
+    const st=document.getElementById("recStatus"); st.style.display=""; st.textContent="Recording… 0s";
+    recTimer=setInterval(()=>{ const s=Math.round((Date.now()-recStart)/1000); st.textContent="Recording… "+s+"s"+(s>=55?" (max 60s)":""); if(s>=60) stopRecord(); },300);
+  }catch(e){ toast("Microphone permission needed"); }
+}
+function stopRecord(){
+  if(mediaRec && mediaRec.state==="recording") mediaRec.stop();
+  clearInterval(recTimer);
+  const rb=document.getElementById("recBtn"); rb.textContent="🎤 Record voice"; rb.classList.remove("recording");
+  document.getElementById("recStatus").style.display="none";
+}
+function saveVoiceNote(dataUrl,dur){
+  const text=document.getElementById("noteInput").value.trim();
+  data.notes.push({ts:Date.now(), text, audio:dataUrl, dur});
+  save(data);
+  document.getElementById("noteInput").value="";
+  renderNotes(); toast("Voice note saved");
+}
 
 /* ---------- settings actions ---------- */
 document.getElementById("exportBtn").onclick=()=>{
@@ -943,9 +1336,21 @@ document.querySelectorAll(".navbtn").forEach(b=>{
   };
 });
 document.getElementById("startBtn").onclick=openPick;
+document.getElementById("manualBtn").onclick=openManual;
 document.getElementById("cancelPick").onclick=closePick;
 document.getElementById("cbBack").onclick=showPickGrid;
 document.getElementById("cbStart").onclick=saveCustomAndStart;
+document.getElementById("mfBack").onclick=showPickGrid;
+document.getElementById("mfSave").onclick=saveManual;
+document.getElementById("rvSave").onclick=reviewSave;
+document.getElementById("rvDiscard").onclick=reviewDiscard;
+document.getElementById("emEdit").onclick=openEditFromMenu;
+document.getElementById("emDelete").onclick=deleteEntry;
+document.getElementById("emCancel").onclick=closeEntryMenu;
+document.getElementById("edCancel").onclick=closeEdit;
+document.getElementById("edSave").onclick=saveEdit;
+document.getElementById("recBtn").onclick=toggleRecord;
+document.querySelectorAll("#chartSeg button").forEach(b=>{ b.onclick=()=>{ chartPeriod=b.dataset.p; renderChart(); }; });
 document.getElementById("endBtn").onclick=endBreak;
 
 /* ---------- toast ---------- */
@@ -959,7 +1364,14 @@ function toast(msg){
 function renderAll(){ renderHeader(); renderToday(); renderAnalytics(); renderNotes(); updateNotifyState(); }
 ensureBaseline();
 tryLoadActive();
-if(active){ document.getElementById("runType").textContent=active.type; showRunning(); startTick(); }
+if(active){
+  const elapsedMin=(Date.now()-active.start)/60000;
+  if(elapsedMin > Math.max(active.limit+10, 30)){
+    openReview(active.type, active.start, active.limit);
+  } else {
+    document.getElementById("runType").textContent=active.type; showRunning(); startTick();
+  }
+}
 renderAll();
 checkProgress();
 document.addEventListener("visibilitychange",()=>{ if(!document.hidden){ renderHeader(); renderToday(); checkProgress(); } });
