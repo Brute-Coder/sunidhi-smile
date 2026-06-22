@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#1b6fb3" />
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<title>Sunidhi's Aligner Tracker</title>
+<title>Aligners Companion</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231b6fb3'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%233b9ae1' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='2.4' fill='white'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -218,6 +218,112 @@
   .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 22px;border-radius:999px;font-size:13.5px;z-index:90;opacity:0;transition:opacity .3s,transform .3s;pointer-events:none;font-weight:500;}
   .toast.show{opacity:1;transform:translateX(-50%) translateY(-4px);}
   canvas.confetti{position:fixed;inset:0;pointer-events:none;z-index:200;}
+
+  /* slim progress */
+  .progress-card.slim{padding:14px 16px;}
+  .progress-card.slim .pbar{margin:10px 0 6px;height:8px;}
+  .progress-card.slim .pc-day{font-size:22px;}
+
+  /* bigger budget hero */
+  .hero .ringwrap{width:min(264px,72vw);height:min(264px,72vw);}
+  .ringcenter .num{font-size:clamp(54px,16vw,68px);}
+  .goalpill.big{font-size:13.5px;padding:9px 18px;margin-top:18px;}
+  .goalpill.mid{background:rgba(232,148,58,.16);color:#9a5b14;}
+
+  /* frequency alert */
+  .freqalert{background:rgba(232,148,58,.13);border:1px solid rgba(232,148,58,.5);color:#8a4f12;font-size:13.5px;line-height:1.5;margin-bottom:14px;}
+  .freqalert b{color:#8a4f12;}
+
+  /* button hierarchy */
+  .btn-lg{font-size:17px;padding:17px 18px;border-radius:14px;font-weight:600;box-shadow:0 4px 14px rgba(27,111,179,.28);}
+  .btn-outline{background:transparent;color:var(--blue);border:1.5px solid var(--blue);}
+  .btn-outline:hover{background:var(--sky-soft);}
+  .confirm-btn{margin-top:12px;width:100%;background:#fff;color:var(--blue-d);border:1.5px solid currentColor;}
+
+  /* break confirm panel */
+  .bc-name{font-family:var(--head);font-weight:600;font-size:18px;margin-bottom:4px;}
+  .bc-rem{font-size:14px;color:var(--blue-d);background:var(--sky-soft);border-radius:10px;padding:10px 12px;font-weight:500;}
+
+  /* analytics summary grid */
+  .summary-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+  .scard{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:12px 10px;text-align:center;}
+  .scard .sv{font-family:var(--head);font-weight:700;font-size:21px;color:var(--ink);line-height:1.1;}
+  .scard .sl{font-size:10.5px;color:var(--muted);margin-top:3px;line-height:1.25;}
+
+  /* badges */
+  .badgeRow{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .badge{border:1px solid var(--line);border-radius:13px;padding:12px;text-align:center;background:var(--surface-2);opacity:.55;filter:grayscale(.5);transition:all .2s;}
+  .badge.got{opacity:1;filter:none;background:linear-gradient(135deg,rgba(27,111,179,.08),rgba(59,154,225,.12));border-color:rgba(59,154,225,.4);}
+  .badge .bi{font-size:24px;}
+  .badge .bn{font-size:12px;font-weight:600;margin-top:4px;color:var(--ink);}
+  .badge .bv{font-size:11px;color:var(--muted);margin-top:1px;}
+
+  /* last worn */
+  .lw-main{font-family:var(--head);font-weight:600;font-size:16px;color:var(--ink);}
+  .lw-sub{font-size:13px;color:var(--muted);margin-top:3px;}
+
+  /* smart insights */
+  .si-line{font-size:13.5px;line-height:1.5;padding:9px 0;border-bottom:1px solid var(--line);}
+  .si-line:last-child{border-bottom:none;}
+
+  /* premium micro-interactions */
+  @keyframes cardIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+  .view.active > .card,.view.active > .summary-grid,.view.active > .grid-today{animation:cardIn .34s ease both;}
+  .card{transition:box-shadow .2s,transform .12s;}
+  @media(hover:hover){ .card:hover{box-shadow:0 2px 4px rgba(16,42,67,.06),0 14px 36px rgba(16,42,67,.09);} }
+  .btn{transition:transform .08s ease,background .2s,box-shadow .2s;}
+  .btn:active{transform:scale(.97);}
+  .navbtn{transition:color .2s;}
+
+  /* confirmed-change banner */
+  .changeday.ok{background:rgba(31,157,107,.12);border-color:rgba(31,157,107,.4);color:#14684a;}
+  .changeday.ok b{color:#14684a;}
+
+  /* merged progress card */
+  .progresscard{background:linear-gradient(135deg,var(--blue),var(--sky));color:#fff;border:none;}
+  .pg-top{display:flex;align-items:center;gap:16px;}
+  .pg-streak{text-align:center;flex-shrink:0;}
+  .pg-streak .bignum{font-family:var(--head);font-weight:700;font-size:46px;line-height:1;}
+  .pg-streak .lbl{font-size:11px;opacity:.9;text-transform:uppercase;letter-spacing:.06em;margin-top:2px;}
+  .pg-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;flex:1;}
+  .pg-grid div{background:rgba(255,255,255,.16);border-radius:10px;padding:7px 8px;text-align:center;}
+  .pg-grid b{font-family:var(--head);font-weight:600;font-size:16px;display:block;}
+  .pg-grid span{font-size:10px;opacity:.9;}
+  .pg-ach{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;}
+  .ach{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:10px;display:flex;align-items:center;gap:9px;opacity:.6;}
+  .ach.got{opacity:1;background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.5);}
+  .ach .ai{font-size:21px;}
+  .ach .an{font-size:12px;font-weight:600;flex:1;line-height:1.2;}
+  .ach .as{font-size:10px;opacity:.85;text-transform:uppercase;letter-spacing:.04em;}
+  .pg-motiv{margin-top:14px;background:rgba(255,255,255,.16);border-radius:12px;padding:11px 13px;font-size:13.5px;line-height:1.5;}
+
+  /* week at a glance */
+  .wg-row{display:flex;justify-content:space-between;gap:6px;}
+  .wg-cell{display:flex;flex-direction:column;align-items:center;gap:5px;flex:1;}
+  .wg-dot{width:26px;height:26px;border-radius:50%;background:var(--surface-2);border:1px solid var(--line);}
+  .wg-dot.wg-ok{background:var(--green);border-color:var(--green);}
+  .wg-dot.wg-mid{background:var(--amber);border-color:var(--amber);}
+  .wg-dot.wg-bad{background:var(--rose);border-color:var(--rose);}
+  .wg-dot.wg-none{background:var(--surface-2);}
+  .wg-d{font-size:11px;color:var(--muted);}
+  .wg-sum{font-size:12.5px;color:var(--muted);margin-top:12px;text-align:center;}
+
+  /* break breakdown */
+  .bb-row{display:flex;align-items:center;gap:10px;padding:7px 0;}
+  .bb-name{font-size:13px;font-weight:500;width:72px;flex-shrink:0;}
+  .bb-bar{flex:1;height:8px;background:var(--surface-2);border-radius:999px;overflow:hidden;}
+  .bb-bar i{display:block;height:100%;background:var(--sky);border-radius:999px;}
+  .bb-val{font-size:12px;color:var(--muted);width:58px;text-align:right;flex-shrink:0;}
+
+  /* best / worst */
+  .bw-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;}
+  .bw-row:last-child{border-bottom:none;}
+  .bw-l{font-weight:500;}
+  .bw-v{color:var(--muted);font-size:13px;}
+  .lw-main{font-family:var(--head);font-weight:600;font-size:16px;color:var(--ink);}
+  .lw-sub{font-size:13px;color:var(--muted);margin-top:3px;}
+  .si-line{font-size:13.5px;line-height:1.5;padding:9px 0;border-bottom:1px solid var(--line);}
+  .si-line:last-child{border-bottom:none;}
 </style>
 </head>
 <body>
@@ -226,7 +332,7 @@
   <div class="topbar">
     <div class="brand">
       <div class="kicker">Invisalign · 22 hours a day</div>
-      <h1>Sunidhi's Aligner Tracker</h1>
+      <h1>Aligners Companion</h1>
       <div class="courseline">
         <div class="item"><b id="setBig">Set —</b> of 24</div>
         <div class="item"><b id="dayBig">Day —</b> of 12</div>
@@ -238,14 +344,14 @@
   <!-- TODAY -->
   <section class="view active" id="view-today">
     <div class="card changeday" id="changeBanner" style="display:none;"></div>
-    <div class="card progress-card">
+    <div class="card freqalert" id="freqAlert" style="display:none;"></div>
+    <div class="card progress-card slim">
       <div class="pc-top">
         <div class="pc-day" id="pcDay">Day — of 288</div>
-        <div class="pc-fin">Finish line · <b id="pcFin">21 Mar 2027</b></div>
+        <div class="pc-fin">Finish · <b id="pcFin">22 Mar 2027</b></div>
       </div>
       <div class="pbar"><i id="pbarFill" style="width:0%"></i></div>
       <div class="pc-pct" id="pcPct">0% of treatment complete</div>
-      <div class="encourage" id="encourage">Welcome back, Sunidhi.</div>
     </div>
 
     <div class="grid-today">
@@ -271,9 +377,9 @@
           <div class="bonus" id="bonusBanner" style="display:none;"></div>
         </div>
         <div class="card">
-          <button class="btn btn-primary btn-block" id="startBtn">Start a break</button>
-          <button class="btn btn-ghost btn-block" id="manualBtn" style="margin-top:10px;">Add a past break</button>
-          <div class="hint">Trays come out only to eat or drink anything except water. Tap when you take them out — the timer counts your minutes and warns you 5 minutes before your limit. Forgot to log one? Use “Add a past break”.</div>
+          <button class="btn btn-primary btn-block btn-lg" id="startBtn">Start a break</button>
+          <button class="btn btn-outline btn-block btn-sm" id="manualBtn" style="margin-top:10px;">Add a past break</button>
+          <div class="hint">Trays come out only to eat or drink anything except water. Tap Start when you take them out — the timer warns you 5 minutes before your limit.</div>
         </div>
       </div>
 
@@ -292,7 +398,17 @@
 
   <!-- ANALYTICS -->
   <section class="view" id="view-analytics">
-    <div class="card insight" id="insightCard" style="margin-top:16px;"></div>
+    <div class="card progresscard" id="progressCard" style="margin-top:16px;"></div>
+
+    <div class="card" style="margin-top:16px;">
+      <h2>This week</h2>
+      <div id="weekGlance"></div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <h2>Last worn</h2>
+      <div id="lastWorn"></div>
+    </div>
 
     <div class="card" style="margin-top:16px;">
       <div class="seg" id="chartSeg">
@@ -315,11 +431,19 @@
       </div>
     </div>
 
-    <div class="period-grid" style="margin-top:16px;">
-      <div class="pcard" id="pcToday"></div>
-      <div class="pcard" id="pcWeek"></div>
-      <div class="pcard" id="pcMonth"></div>
-      <div class="pcard" id="pcYear"></div>
+    <div class="card" style="margin-top:16px;">
+      <h2>Break breakdown</h2>
+      <div id="breakBreakdown"></div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <h2>Best &amp; toughest day</h2>
+      <div id="bestWorst"></div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <h2>Smart insights</h2>
+      <div id="smartInsights"></div>
     </div>
 
     <div class="card" style="margin-top:16px;">
@@ -371,7 +495,7 @@
       <div class="card">
         <h2>The plan</h2>
         <div class="logrow"><span class="t">Course</span><span class="m">24 sets · 12 days each</span></div>
-        <div class="logrow"><span class="t">Started</span><span class="m">7 June 2026</span></div>
+        <div class="logrow"><span class="t">Started</span><span class="m">8 June 2026</span></div>
         <div class="logrow"><span class="t">Daily goal</span><span class="m">22 hours worn</span></div>
         <div class="logrow"><span class="t">Off-budget</span><span class="m">120 minutes / day</span></div>
         <div class="logrow"><span class="t">Breakfast</span><span class="m">25 min (incl. brush)</span></div>
@@ -410,6 +534,14 @@
     <h3 id="pickTitle">Which break is this?</h3>
     <p class="sub" id="pickSub">Pick one. The timer starts straight away.</p>
     <div class="pickgrid" id="pickGrid"></div>
+    <div id="breakConfirm" style="display:none;">
+      <div class="bc-name" id="bcName">Lunch</div>
+      <div class="bc-rem" id="bcRem">Remaining today: 95 minutes</div>
+      <div class="row2" style="margin-top:16px;">
+        <button class="btn btn-outline btn-block" id="bcBack">Back</button>
+        <button class="btn btn-primary btn-block" id="bcStart">Start timer</button>
+      </div>
+    </div>
     <div id="customForm" style="display:none;">
       <label class="cblabel">Break name</label>
       <input id="cbName" class="cbin" maxlength="20" placeholder="e.g. Coffee, Medicine, Water break" />
@@ -433,6 +565,19 @@
       </div>
     </div>
     <button class="btn btn-ghost btn-block" id="cancelPick" style="margin-top:14px;">Cancel</button>
+  </div>
+</div>
+
+<div class="sheet" id="changeSheet">
+  <div class="sheetcard">
+    <h3>When did you change?</h3>
+    <p class="sub" id="csSub">Pick the day you switched to your new aligners.</p>
+    <label class="cblabel">Change date (Day 1 is the next day)</label>
+    <input id="csDate" class="cbin" type="date" />
+    <div class="row2" style="margin-top:16px;">
+      <button class="btn btn-outline btn-block" id="csCancel">Cancel</button>
+      <button class="btn btn-primary btn-block" id="csConfirm">Confirm change</button>
+    </div>
   </div>
 </div>
 
@@ -506,6 +651,7 @@ data.logs = data.logs || {};
 data.notes = data.notes || [];
 data.ackDayMs = data.ackDayMs || {};
 data.customBreaks = data.customBreaks || [];
+migrateSetLog(data);
 
 /* ids + per-day intervention counter (for streak penalty) */
 let _idc = Date.now();
@@ -532,17 +678,104 @@ function addDays(d,n){const x=new Date(d);x.setDate(x.getDate()+n);return x;}
 function stripTime(d){return new Date(d.getFullYear(),d.getMonth(),d.getDate());}
 function dayDiff(a,b){return Math.floor((stripTime(a)-stripTime(b))/86400000);}
 
-function courseInfo(today){
-  const idx = dayDiff(today, START);
-  if(idx < 0) return {before:true, idx};
-  const setNum = Math.floor(idx/DAYS)+1;
-  const dayInSet = idx%DAYS + 1;
-  const setStart = addDays(START, (setNum-1)*DAYS);
-  const changeDate = addDays(setStart, DAYS-1);
-  const done = setNum > SETS;
-  return {before:false, idx, setNum, dayInSet, setStart, changeDate, done, isChangeDay:dayInSet===DAYS};
+/* migrate legacy data (date-based schedule) to confirmation-driven setLog */
+function migrateSetLog(d){
+  if(!d.setLog){
+    const idx=dayDiff(new Date(), START);
+    const curSet = idx>=0 ? Math.min(SETS, Math.floor(idx/DAYS)+1) : 1;
+    d.setLog=[];
+    for(let s=1;s<=curSet;s++) d.setLog.push({set:s, start:key(addDays(START,(s-1)*DAYS))});
+  }
+  if(d.finished===undefined) d.finished=false;
 }
-function curSet(){ const ci=courseInfo(new Date()); return ci.before?0:(ci.done?SETS+1:ci.setNum); }
+
+/* ---------- course model (confirmation-driven set changes) ---------- */
+function firstStart(){ return new Date(data.setLog[0].start+"T00:00:00"); }
+function currentEntry(){ return data.setLog[data.setLog.length-1]; }
+function curStart(){ return new Date(currentEntry().start+"T00:00:00"); }
+function curSetNum(){ return currentEntry().set; }
+
+function activeEntryFor(today){
+  const L=data.setLog;
+  for(let i=L.length-1;i>=0;i--){
+    const s=new Date(L[i].start+"T00:00:00");
+    if(today>=s) return L[i];
+  }
+  return L[0];
+}
+function todayInfo(){
+  const today=stripTime(new Date());
+  if(data.finished) return {finished:true};
+  if(dayDiff(today, firstStart())<0) return {before:true};
+  const L=data.setLog;
+  const e=activeEntryFor(today);
+  const confirmedNext = (e!==L[L.length-1]);   // a future-dated next set already exists
+  const start=new Date(e.start+"T00:00:00");
+  const idx=dayDiff(today,start);
+  const dayInSet=idx+1;
+  return {setNum:e.set, dayInSet, idx, start, confirmedNext,
+    nextStart: confirmedNext ? new Date(L[L.length-1].start+"T00:00:00") : null,
+    nextSet: confirmedNext ? L[L.length-1].set : null,
+    changeDate:addDays(start,DAYS-1),
+    isChangeDay: dayInSet===DAYS,
+    oneDayLeft: dayInSet===DAYS-1,
+    needsConfirm: dayInSet>DAYS && !confirmedNext };
+}
+
+/* which set/day a historical date belongs to */
+function courseInfo(d){
+  d=stripTime(d);
+  if(dayDiff(d, firstStart())<0) return {before:true};
+  const L=data.setLog;
+  for(let i=L.length-1;i>=0;i--){
+    const s=new Date(L[i].start+"T00:00:00");
+    if(d>=s){ return {before:false, setNum:L[i].set, dayInSet:Math.min(DAYS, dayDiff(d,s)+1)}; }
+  }
+  return {before:true};
+}
+
+function finishDate(){ return addDays(curStart(), (SETS-curSetNum())*DAYS + (DAYS-1)); }
+function overallDayNo(){
+  const ti=todayInfo();
+  if(ti.before) return 0;
+  if(ti.finished) return TOTAL_DAYS;
+  return (curSetNum()-1)*DAYS + Math.min(ti.dayInSet, DAYS);
+}
+function setStartFor(s){
+  const known=data.setLog.find(e=>e.set===s);
+  if(known) return new Date(known.start+"T00:00:00");
+  return addDays(curStart(), (s-curSetNum())*DAYS);
+}
+function openChangeConfirm(){
+  const ti=todayInfo();
+  if(ti.finished || ti.before) return;
+  if(ti.setNum>=SETS){
+    if(confirm("Mark your treatment as complete? You've worn all 24 sets.")){
+      data.finished=true; save(data); confetti(); toast("Treatment complete — all 24 sets! 🎉"); renderAll();
+    }
+    return;
+  }
+  document.getElementById("csSub").textContent="Pick the day you changed to Set "+(ti.setNum+1)+". Day 1 is the next morning.";
+  const d=document.getElementById("csDate");
+  d.value=todayKey();
+  d.min=key(curStart());
+  d.max=todayKey();
+  document.getElementById("changeSheet").classList.add("show");
+}
+function closeChangeConfirm(){ document.getElementById("changeSheet").classList.remove("show"); }
+function doConfirmChange(){
+  const cs=curSetNum();
+  const dstr=document.getElementById("csDate").value;
+  if(!dstr){ toast("Pick the day you changed"); return; }
+  const changeDate=new Date(dstr+"T00:00:00");
+  if(changeDate < curStart()){ toast("Date can't be before this set started"); return; }
+  const newStart=addDays(changeDate,1);
+  data.setLog.push({set:cs+1, start:key(newStart)});
+  save(data);
+  closeChangeConfirm(); confetti();
+  toast("Set "+cs+" done — Set "+(cs+1)+" begins "+fmt(newStart)+"!");
+  renderAll();
+}
 
 function todayKey(){return key(new Date());}
 function todayLog(){ return data.logs[todayKey()] || {breaks:[]}; }
@@ -550,6 +783,33 @@ function usedToday(){ return todayLog().breaks.reduce((s,b)=>s+b.min,0); }
 function allPresetsUsedToday(){
   const used={}; todayLog().breaks.forEach(b=>{used[b.type]=true;});
   return Object.keys(BREAKS).every(t=>used[t]);
+}
+/* breaks sorted by reinsertion time (at) for today */
+function todayBreaksSorted(){ return todayLog().breaks.slice().sort((a,b)=>a.at-b.at); }
+function tooFrequent(){
+  const list=todayBreaksSorted();
+  const count=list.length;
+  // short continuous-wear gaps: start of break i ≈ at_i - min_i; gap = start_i - at_(i-1)
+  let shortGap=false, minGap=Infinity;
+  for(let i=1;i<list.length;i++){
+    const startI=list[i].at - list[i].min*60000;
+    const gap=(startI - list[i-1].at)/60000;
+    if(gap>=0 && gap<minGap) minGap=gap;
+    if(gap>=0 && gap<30) shortGap=true;
+  }
+  if(count>5){
+    return '⚠ <b>'+count+' removals today.</b> Fewer, longer wear stretches help your teeth move — try to consolidate your breaks.';
+  }
+  if(shortGap){
+    return '⚠ <b>Aligners removed again after just '+Math.round(minGap)+' min.</b> Give them longer continuous wear between breaks.';
+  }
+  return null;
+}
+function lastWornInfo(){
+  // most recent reinsertion across all logs
+  let last=null;
+  Object.keys(data.logs).forEach(k=>{ (data.logs[k].breaks||[]).forEach(b=>{ if(!last || b.at>last) last=b.at; }); });
+  return last;
 }
 
 /* ---------- per-day metrics ---------- */
@@ -565,7 +825,7 @@ function periodStats(fromDate,toDate){
   let d=stripTime(fromDate), end=stripTime(toDate);
   let eligible=0, tracked=[];
   while(d<=end){
-    if(dayDiff(d,START)>=0){ eligible++; const k=key(d); if(isTracked(k)) tracked.push(k); }
+    if(dayDiff(d,firstStart())>=0){ eligible++; const k=key(d); if(isTracked(k)) tracked.push(k); }
     d=addDays(d,1);
   }
   if(!tracked.length) return {eligible, n:0, avgWear:0, totalWear:0, comp:0, hits:0};
@@ -592,48 +852,53 @@ function computeStreak(){
   return streak;
 }
 
-/* ---------- header + progress + encouragement ---------- */
+/* ---------- header + progress ---------- */
 function renderHeader(){
-  const ci = courseInfo(new Date());
-  if(ci.before){
-    document.getElementById("setBig").textContent="Soon";
-    document.getElementById("dayBig").textContent="—";
-    document.getElementById("changeBig").textContent="7 Jun 2026";
-  } else if(ci.done){
-    document.getElementById("setBig").textContent="Done";
-    document.getElementById("dayBig").textContent="🎉";
-    document.getElementById("changeBig").textContent="Finished";
+  const ti = todayInfo();
+  const setBig=document.getElementById("setBig"), dayBig=document.getElementById("dayBig"), changeBig=document.getElementById("changeBig");
+  if(ti.before){
+    setBig.textContent="—"; dayBig.textContent="—"; changeBig.textContent=fmt(firstStart());
+  } else if(ti.finished){
+    setBig.textContent="✓"; dayBig.textContent="Done"; changeBig.textContent="Finished";
   } else {
-    document.getElementById("setBig").textContent=ci.setNum;
-    document.getElementById("dayBig").textContent=ci.dayInSet;
-    document.getElementById("changeBig").textContent= ci.isChangeDay ? "Today" : fmt(ci.changeDate);
+    setBig.textContent=ti.setNum;
+    dayBig.textContent=Math.min(ti.dayInSet,DAYS);
+    changeBig.textContent= ti.confirmedNext ? fmt(addDays(ti.nextStart,DAYS-1)) : (ti.needsConfirm ? "Confirm" : (ti.isChangeDay ? "Tonight" : fmt(ti.changeDate)));
   }
 
   const cb=document.getElementById("changeBanner");
-  if(!ci.before && !ci.done && ci.dayInSet===DAYS-1){
+  if(ti.before || ti.finished){
+    cb.style.display="none";
+  } else if(ti.confirmedNext){
+    cb.style.display=""; cb.className="card changeday ok";
+    cb.innerHTML='✓ <b>Changed to Set '+ti.nextSet+'.</b> Your new set starts '+fmt(ti.nextStart)+' — nice work!';
+  } else if(ti.oneDayLeft){
     cb.style.display=""; cb.className="card changeday alert";
-    if(ci.setNum>=SETS) cb.innerHTML='⚠ <b>1 day left!</b> Treatment finishes tomorrow night after Set '+SETS+'.';
-    else cb.innerHTML='⚠ <b>1 day left on Set '+ci.setNum+'.</b> You’ll change to <b>Set '+(ci.setNum+1)+'</b> tomorrow night.';
-  } else if(!ci.before && !ci.done && ci.isChangeDay){
-    cb.style.display=""; cb.className="card changeday";
-    if(ci.setNum>=SETS){
-      cb.innerHTML='<b>Final day of treatment!</b> Finish today wearing Set '+SETS+' — you made it through all 24. 🎉';
+    if(ti.setNum>=SETS) cb.innerHTML='⚠ <b>1 day left!</b> Treatment finishes tomorrow night after Set '+SETS+'.';
+    else cb.innerHTML='⚠ <b>1 day left on Set '+ti.setNum+'.</b> You’ll change to <b>Set '+(ti.setNum+1)+'</b> tomorrow night.';
+  } else if(ti.isChangeDay || ti.needsConfirm){
+    cb.style.display=""; cb.className = ti.needsConfirm ? "card changeday alert" : "card changeday";
+    if(ti.setNum>=SETS){
+      cb.innerHTML='<b>'+(ti.needsConfirm?"Finished your last set?":"Final day — Day 12 of Set "+SETS+".")+'</b> Confirm once you’ve completed treatment.'+
+        '<button id="confirmChangeBtn" class="btn btn-sm confirm-btn">I’ve finished treatment 🎉</button>';
     } else {
-      cb.innerHTML='<b>Change day — Day 12 of Set '+ci.setNum+'.</b> Wear it all day, then switch to <b>Set '+(ci.setNum+1)+'</b> tonight before bed.';
+      const lead = ti.needsConfirm
+        ? "Change overdue — have you switched to Set "+(ti.setNum+1)+"?"
+        : "Change day — Day 12 of Set "+ti.setNum+". Change tonight before bed.";
+      cb.innerHTML='<b>'+lead+'</b> Confirm and Day 1 of the new set starts the next day.'+
+        '<button id="confirmChangeBtn" class="btn btn-sm confirm-btn">I’ve changed my aligners</button>';
     }
+    const btn=document.getElementById("confirmChangeBtn"); if(btn) btn.onclick=openChangeConfirm;
   } else {
     cb.style.display="none";
   }
 
-  const finish=addDays(START,TOTAL_DAYS-1);
-  document.getElementById("pcFin").textContent=fmt(finish);
-  let dayNo=0;
-  if(!ci.before) dayNo=Math.min(TOTAL_DAYS, ci.idx+1);
+  document.getElementById("pcFin").textContent=fmt(finishDate());
+  const dayNo=overallDayNo();
   const pct=Math.max(0,Math.min(100, dayNo/TOTAL_DAYS*100));
-  document.getElementById("pcDay").textContent= ci.before? "Starts 7 Jun 2026" : ("Day "+dayNo+" of "+TOTAL_DAYS);
+  document.getElementById("pcDay").textContent= ti.before? "Starts "+fmt(firstStart()) : (ti.finished? "Treatment complete 🎉" : ("Day "+dayNo+" of "+TOTAL_DAYS));
   document.getElementById("pbarFill").style.width=pct+"%";
   document.getElementById("pcPct").textContent=Math.round(pct)+"% of treatment complete";
-  document.getElementById("encourage").textContent=encourageLine(ci);
 }
 function lastTrackedBefore(today){
   let d=addDays(today,-1);
@@ -682,19 +947,24 @@ function renderToday(){
   const bonusEl = document.getElementById("bonusBanner");
   const allUsed = allPresetsUsedToday();
   if(used>BUDGET){
-    pill.className="goalpill warn"; pill.textContent="Below 22h — "+(used-BUDGET)+" min over";
+    pill.className="goalpill big warn"; pill.textContent="🔴 Over Budget · "+(used-BUDGET)+" min over";
     bonusEl.style.display="none";
   } else if(allUsed && rem>0){
-    pill.className="goalpill ok"; pill.textContent="Bonus time · "+rem+" min spare";
+    pill.className="goalpill big ok"; pill.textContent="🟢 On Track · "+rem+" min bonus";
     bonusEl.style.display="";
     bonusEl.innerHTML="🎉 All your breaks are done and you've still saved <b>"+rem+" min</b>. Enjoy an extra munch — you've earned it and you'll still hit your 22h goal!";
   } else if(rem<=20){
-    pill.className="goalpill warn"; pill.textContent="Careful — "+rem+" min left today";
+    pill.className="goalpill big mid"; pill.textContent="🟡 Close to Limit · "+rem+" min left";
     bonusEl.style.display="none";
   } else {
-    pill.className="goalpill ok"; pill.textContent="On track for 22h";
+    pill.className="goalpill big ok"; pill.textContent="🟢 On Track · "+rem+" min left";
     bonusEl.style.display="none";
   }
+
+  // frequency alert
+  const fa=document.getElementById("freqAlert");
+  const fr=tooFrequent();
+  if(fr){ fa.style.display=""; fa.innerHTML=fr; } else { fa.style.display="none"; }
 
   const usedTypes = {};
   todayLog().breaks.forEach(b=>{usedTypes[b.type]=(usedTypes[b.type]||0)+b.min;});
@@ -758,31 +1028,68 @@ function periodCard(elId, title, sub, stats, isToday){
 function statRow(label,val,big){
   return '<div class="pstat"><span class="pl">'+label+'</span><span class="pv'+(big?' big':'')+'">'+val+'</span></div>';
 }
-function renderInsights(){
-  const st=computeStreak();
-  const best=Math.max(data.bestStreak||0, st);
-  const perfectDays=complianceDaysTotal();
+function renderProgress(){
+  const st=computeStreak(), best=Math.max(data.bestStreak||0, st);
   const today=new Date(), yest=addDays(today,-1);
-  const overall=periodStats(START, yest);
-  const last7=periodStats(addDays(today,-7), yest);
-  const compTxt = overall.n ? Math.round(overall.comp)+"%" : "—";
-  let motiv;
-  if(st>=7) motiv="🔥 "+st+" days strong — this is a real habit now. Protect the streak!";
-  else if(st>=3) motiv="Great momentum — "+st+" days in a row. Keep it rolling!";
-  else if(st>0) motiv=st+"-day streak going. "+(best>st?("Beat your best of "+best+"!"):"Build a new record!");
-  else if(perfectDays>0) motiv="Fresh start — one full 22h day today begins a new streak.";
-  else motiv="Track every break today to start your streak.";
-  document.getElementById("insightCard").innerHTML=
-    '<div class="ins-top">'+
-      '<div class="ins-streak"><div class="bignum">'+st+'</div><div class="lbl">day streak</div></div>'+
-      '<div class="ins-mini">'+
-        '<div><b>'+best+'</b><span>best streak</span></div>'+
-        '<div><b>'+perfectDays+'</b><span>perfect days</span></div>'+
-        '<div><b>'+compTxt+'</b><span>avg compliance</span></div>'+
-        '<div><b>'+last7.hits+'/7</b><span>last 7 days</span></div>'+
-      '</div>'+
+  const overall=periodStats(firstStart(), yest);
+  const week=periodStats(addDays(today,-7), yest);
+  const perfectDays=complianceDaysTotal();
+  const stats=[
+    {v:best, l:"Longest streak"},
+    {v:perfectDays, l:"Perfect days"},
+    {v:perfectSetCount(), l:"Perfect sets"},
+    {v:overall.n?Math.round(overall.comp)+"%":"—", l:"Avg compliance"},
+    {v:overall.n?overall.avgWear.toFixed(1)+"h":"—", l:"Avg wear"},
+    {v:week.n?Math.round(week.comp)+"%":"—", l:"This week"}
+  ];
+  const ach=[
+    {ic:"🎯", name:"First Perfect Week", got:best>=7},
+    {ic:"💯", name:"First Perfect Set", got:perfectSetCount()>=1}
+  ];
+  let motiv = st>=7 ? ("🔥 "+st+" days strong — protect the streak!")
+    : st>=3 ? ("Great momentum — "+st+" days in a row!")
+    : st>0 ? (st+"-day streak. "+(best>st?("Beat your best of "+best+"!"):"Build a new record!"))
+    : perfectDays>0 ? "Fresh start — a full 22h day today begins a new streak."
+    : "Track every break today to start your streak.";
+  document.getElementById("progressCard").innerHTML=
+    '<div class="pg-top">'+
+      '<div class="pg-streak"><div class="bignum">'+st+'</div><div class="lbl">day streak</div></div>'+
+      '<div class="pg-grid">'+stats.map(s=>'<div><b>'+s.v+'</b><span>'+s.l+'</span></div>').join("")+'</div>'+
     '</div>'+
-    '<div class="ins-motiv">'+motiv+'</div>';
+    '<div class="pg-ach">'+ach.map(a=>'<div class="ach'+(a.got?" got":"")+'"><span class="ai">'+a.ic+'</span><span class="an">'+a.name+'</span><span class="as">'+(a.got?"Earned":"Locked")+'</span></div>').join("")+'</div>'+
+    '<div class="pg-motiv">'+motiv+'</div>';
+}
+function renderWeekGlance(){
+  const today=new Date(); let html='<div class="wg-row">';
+  for(let i=6;i>=0;i--){
+    const d=addDays(today,-i); const k=key(d); const tr=isTracked(k);
+    let cls="wg-none"; if(tr){ const m=dayMetrics(k); cls=m.hit?"wg-ok":(m.wearH>=20?"wg-mid":"wg-bad"); }
+    const wd=d.toLocaleDateString("en-GB",{weekday:"narrow"});
+    html+='<div class="wg-cell"><div class="wg-dot '+cls+'"></div><div class="wg-d">'+wd+'</div></div>';
+  }
+  html+='</div>';
+  const week=periodStats(addDays(today,-6), today);
+  html+='<div class="wg-sum">'+ (week.n ? (week.hits+' of '+week.n+' tracked days hit your 22h goal') : 'No days tracked this week yet') +'</div>';
+  document.getElementById("weekGlance").innerHTML=html;
+}
+function renderBreakBreakdown(){
+  const sum={}, cnt={};
+  Object.keys(data.logs).forEach(k=>{(data.logs[k].breaks||[]).forEach(b=>{ sum[b.type]=(sum[b.type]||0)+b.min; cnt[b.type]=(cnt[b.type]||0)+1; });});
+  const types=Object.keys(sum);
+  const el=document.getElementById("breakBreakdown");
+  if(!types.length){ el.innerHTML='<div class="empty" style="padding:6px 0;">No breaks logged yet.</div>'; return; }
+  const rows=types.map(t=>({t,avg:sum[t]/cnt[t]})).sort((a,b)=>b.avg-a.avg);
+  const maxAvg=Math.max.apply(null, rows.map(r=>r.avg));
+  el.innerHTML=rows.map(r=>'<div class="bb-row"><div class="bb-name">'+escapeHtml(r.t)+'</div><div class="bb-bar"><i style="width:'+Math.round(r.avg/maxAvg*100)+'%"></i></div><div class="bb-val">'+r.avg.toFixed(0)+'m avg</div></div>').join("");
+}
+function renderBestWorst(){
+  let best=null, worst=null;
+  Object.keys(data.logs).forEach(k=>{ if(!isTracked(k))return; const m=dayMetrics(k); if(!best||m.wearH>best.w) best={k,w:m.wearH}; if(!worst||m.wearH<worst.w) worst={k,w:m.wearH}; });
+  const el=document.getElementById("bestWorst");
+  if(!best){ el.innerHTML='<div class="empty" style="padding:6px 0;">No days tracked yet.</div>'; return; }
+  const fd=k=>fmtShort(new Date(k+"T00:00:00"));
+  el.innerHTML='<div class="bw-row"><span class="bw-l">🏅 Best day</span><span class="bw-v">'+fd(best.k)+' · '+best.w.toFixed(1)+'h</span></div>'+
+               '<div class="bw-row"><span class="bw-l">💪 Toughest day</span><span class="bw-v">'+fd(worst.k)+' · '+worst.w.toFixed(1)+'h</span></div>';
 }
 
 let chartPeriod='W';
@@ -835,25 +1142,63 @@ function renderChart(){
 }
 
 function setPerfect(s){
-  const sStart=addDays(START,(s-1)*DAYS);
+  const sStart=setStartFor(s);
   for(let i=0;i<DAYS;i++){
     const k=key(addDays(sStart,i));
     if(!isTracked(k) || !dayMetrics(k).hit) return false;
   }
   return true;
 }
+function perfectSetCount(){ let c=0; for(let s=1;s<=SETS;s++){ if(setPerfect(s)) c++; } return c; }
+
+function renderLastWorn(){
+  const el=document.getElementById("lastWorn");
+  if(active){
+    const t=new Date(active.start).toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit"});
+    el.innerHTML='<div class="lw-main">Aligners are out now ('+escapeHtml(active.type)+' break)</div><div class="lw-sub">Taken out at '+t+'</div>';
+    return;
+  }
+  const last=lastWornInfo();
+  if(!last){ el.innerHTML='<div class="empty" style="padding:6px 0;">No breaks logged yet.</div>'; return; }
+  const t=new Date(last);
+  const mins=Math.round((Date.now()-last)/60000);
+  const ago = mins<60 ? (mins+"m") : (Math.floor(mins/60)+"h "+(mins%60)+"m");
+  const tt=t.toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit"});
+  const day = key(t)===todayKey() ? tt : fmtShort(t);
+  el.innerHTML='<div class="lw-main">Aligners in since '+day+'</div><div class="lw-sub">Worn '+ago+' so far</div>';
+}
+
+function renderSmartInsights(){
+  const el=document.getElementById("smartInsights");
+  const today=new Date();
+  const out=[];
+  const week=periodStats(addDays(today,-7), addDays(today,-1));
+  const prevWeek=periodStats(addDays(today,-14), addDays(today,-8));
+  if(week.n>=4 && week.hits>=Math.ceil(week.n*0.85)) out.push("✨ Excellent consistency this week — "+week.hits+" of "+week.n+" days on target.");
+  if(week.n>=3 && prevWeek.n>=3){
+    const diff=Math.round((week.avgWear-prevWeek.avgWear)*60);
+    if(diff>=10) out.push("📈 Your average wear improved by "+diff+" min vs last week.");
+    else if(diff<=-10) out.push("📉 Wear dropped "+Math.abs(diff)+" min vs last week — let's bounce back.");
+  }
+  // most common longest-break slot by type
+  const byType={};
+  Object.keys(data.logs).forEach(k=>{(data.logs[k].breaks||[]).forEach(b=>{byType[b.type]=(byType[b.type]||0)+b.min;});});
+  let topType=null,topMin=0; Object.keys(byType).forEach(t=>{ if(byType[t]>topMin){topMin=byType[t];topType=t;} });
+  if(topType) out.push("⏱ Your longest total off-time is usually "+topType+".");
+  const st=computeStreak(), best=Math.max(data.bestStreak||0,st);
+  if(best>0 && st>0 && best-st>=1 && best-st<=3) out.push("🎯 "+(best-st+1)+" more perfect days to beat your longest streak of "+best+".");
+  if(!out.length) out.push("Track a few more days to unlock personalised insights.");
+  el.innerHTML=out.slice(0,3).map(s=>'<div class="si-line">'+s+'</div>').join("");
+}
 
 function renderAnalytics(){
-  const today=new Date();
-  const yest=addDays(today,-1);
-  periodCard("pcToday","Today", fmtShort(today), null, true);
-  periodCard("pcWeek","This week","Last 7 days", periodStats(addDays(today,-7), yest));
-  const monthStart=new Date(today.getFullYear(),today.getMonth(),1);
-  periodCard("pcMonth","This month", today.toLocaleDateString("en-GB",{month:"long"}), periodStats(monthStart, yest));
-  periodCard("pcYear","Overall","Whole treatment so far", periodStats(START, yest));
-
-  renderInsights();
+  renderProgress();
+  renderWeekGlance();
+  renderLastWorn();
   renderChart();
+  renderBreakBreakdown();
+  renderBestWorst();
+  renderSmartInsights();
 
   const keys = Object.keys(data.logs).sort().reverse();
   const hl=document.getElementById("historyList"); hl.innerHTML="";
@@ -871,18 +1216,18 @@ function renderAnalytics(){
   });
 
   const sl=document.getElementById("setList"); sl.innerHTML="";
-  const cur=courseInfo(new Date());
+  const curN=curSetNum(), fin=data.finished;
   for(let s=1;s<=SETS;s++){
-    const sStart=addDays(START,(s-1)*DAYS);
+    const sStart=setStartFor(s);
     const sEnd=addDays(sStart,DAYS-1);
     const box=document.createElement("div"); box.className="setbox";
     const perfect=setPerfect(s);
     let tag="";
     if(perfect){ box.classList.add("perfect"); tag='<span class="tag perfect">✓ 100%</span>'; }
-    else if(!cur.before && !cur.done){
-      if(s<cur.setNum) tag='<span class="tag done">done</span>';
-      else if(s===cur.setNum){ tag='<span class="tag now">now</span>'; box.classList.add("cur"); }
-    }
+    else if(!fin){
+      if(s<curN) tag='<span class="tag done">done</span>';
+      else if(s===curN){ tag='<span class="tag now">now</span>'; box.classList.add("cur"); }
+    } else { tag='<span class="tag done">done</span>'; }
     box.innerHTML='<div class="sn">Set '+s+' '+tag+'</div><div class="when">'+fmt(sStart)+'<br>– '+fmt(sEnd)+'</div>';
     sl.appendChild(box);
   }
@@ -915,15 +1260,16 @@ function openPick(){
 function showPickGrid(){
   document.getElementById("customForm").style.display="none";
   document.getElementById("manualForm").style.display="none";
+  document.getElementById("breakConfirm").style.display="none";
   document.getElementById("pickTitle").textContent="Which break is this?";
-  document.getElementById("pickSub").textContent="Pick one. The timer starts straight away.";
+  document.getElementById("pickSub").textContent="Pick one to see your remaining time.";
   const grid=document.getElementById("pickGrid"); grid.style.display=""; grid.innerHTML="";
   const merged=allBreaks();
   Object.keys(merged).forEach(t=>{
     const isCustom=(data.customBreaks||[]).some(c=>c.name===t);
     const b=document.createElement("button"); b.className="pick";
     b.innerHTML='<div class="pn">'+escapeHtml(t)+'</div><div class="pa">'+merged[t]+' min allowed</div>'+(isCustom?'<span class="rmcb" title="Remove">&times;</span>':'');
-    b.onclick=()=>startBreak(t);
+    b.onclick=()=>selectBreak(t);
     if(isCustom){ b.querySelector(".rmcb").onclick=(e)=>{e.stopPropagation(); removeCustom(t);}; }
     grid.appendChild(b);
   });
@@ -932,9 +1278,22 @@ function showPickGrid(){
   add.onclick=showCustomForm;
   grid.appendChild(add);
 }
+let pendingBreak=null;
+function selectBreak(t){
+  pendingBreak=t;
+  const allow=allowanceFor(t);
+  const rem=Math.max(0, BUDGET-usedToday());
+  document.getElementById("pickGrid").style.display="none";
+  document.getElementById("pickTitle").textContent="Ready to start?";
+  document.getElementById("pickSub").textContent="The timer begins when you tap Start.";
+  document.getElementById("bcName").textContent=t+" · "+allow+" min allowed";
+  document.getElementById("bcRem").textContent="Remaining today: "+rem+" minutes";
+  document.getElementById("breakConfirm").style.display="";
+}
 function showCustomForm(){
   document.getElementById("pickGrid").style.display="none";
   document.getElementById("manualForm").style.display="none";
+  document.getElementById("breakConfirm").style.display="none";
   document.getElementById("customForm").style.display="";
   document.getElementById("pickTitle").textContent="Add a custom break";
   document.getElementById("pickSub").textContent="Name it and set how many minutes it's allowed.";
@@ -951,6 +1310,7 @@ function openManual(){
 function showManualForm(){
   document.getElementById("pickGrid").style.display="none";
   document.getElementById("customForm").style.display="none";
+  document.getElementById("breakConfirm").style.display="none";
   document.getElementById("manualForm").style.display="";
   document.getElementById("pickTitle").textContent="Add a past break";
   document.getElementById("pickSub").textContent="Log a break you forgot to track earlier.";
@@ -960,7 +1320,7 @@ function showManualForm(){
   sel.onchange=()=>{ const m=allBreaks()[sel.value]; if(m) document.getElementById("mfMin").value=m; };
   document.getElementById("mfMin").value=merged[sel.value]||20;
   const dEl=document.getElementById("mfDate");
-  dEl.value=todayKey(); dEl.min=key(START); dEl.max=todayKey();
+  dEl.value=todayKey(); dEl.min=key(firstStart()); dEl.max=todayKey();
 }
 function saveManual(){
   const type=document.getElementById("mfType").value;
@@ -1197,31 +1557,25 @@ function ensureBaseline(){
   if(!data._baseline){
     data._baseline=true;
     data.bestStreak=computeStreak();
-    data.lastSetSeen=curSet();
     DAY_MILESTONES.forEach(m=>{ if(complianceDaysTotal()>=m) data.ackDayMs[m]=true; });
+    if(computeStreak()>=7) data.ackPerfectWeek=true;
     save(data);
   }
 }
 function checkProgress(){
   let fired=false;
-  const cs=curSet();
-  if(typeof data.lastSetSeen==="number" && data.lastSetSeen>=1 && cs>data.lastSetSeen && cs<=SETS+1){
-    const completed=Math.min(SETS, cs-1);
-    toast("Set "+completed+" complete — "+(SETS-completed)+" to go!"); confetti(); fired=true;
-  }
-  if(typeof data.lastSetSeen==="number" && cs>data.lastSetSeen) data.lastSetSeen=cs;
-
   const st=computeStreak();
   if(st>(data.bestStreak||0)){
     data.bestStreak=st;
     if(st>=3){ toast("New best streak — "+st+" days! 🔥"); confetti(); fired=true; }
   }
+  if(st>=7 && !data.ackPerfectWeek){ data.ackPerfectWeek=true; toast("Perfect week! 7 days at 22h+ ⭐"); confetti(); fired=true; }
   const cd=complianceDaysTotal();
   DAY_MILESTONES.forEach(m=>{
     if(cd>=m && !data.ackDayMs[m]){ data.ackDayMs[m]=true; toast(m+" compliant days! Amazing work."); confetti(); fired=true; }
   });
   save(data);
-  if(fired){ renderInsights(); }
+  if(fired){ renderProgress(); }
 }
 function confetti(){
   const cv=document.createElement("canvas"); cv.className="confetti";
@@ -1302,6 +1656,8 @@ document.getElementById("importFile").onchange=(e)=>{
     try{
       const d=JSON.parse(r.result);
       d.logs=d.logs||{}; d.notes=d.notes||[]; d.ackDayMs=d.ackDayMs||{};
+      d.customBreaks=d.customBreaks||[];
+      migrateSetLog(d);
       data=d; save(data);
       renderAll(); toast("Backup restored");
     }catch(err){ toast("Couldn't read that file"); }
@@ -1338,6 +1694,8 @@ document.querySelectorAll(".navbtn").forEach(b=>{
 document.getElementById("startBtn").onclick=openPick;
 document.getElementById("manualBtn").onclick=openManual;
 document.getElementById("cancelPick").onclick=closePick;
+document.getElementById("bcBack").onclick=showPickGrid;
+document.getElementById("bcStart").onclick=()=>{ if(pendingBreak) startBreak(pendingBreak); };
 document.getElementById("cbBack").onclick=showPickGrid;
 document.getElementById("cbStart").onclick=saveCustomAndStart;
 document.getElementById("mfBack").onclick=showPickGrid;
@@ -1352,6 +1710,8 @@ document.getElementById("edSave").onclick=saveEdit;
 document.getElementById("recBtn").onclick=toggleRecord;
 document.querySelectorAll("#chartSeg button").forEach(b=>{ b.onclick=()=>{ chartPeriod=b.dataset.p; renderChart(); }; });
 document.getElementById("endBtn").onclick=endBreak;
+document.getElementById("csCancel").onclick=closeChangeConfirm;
+document.getElementById("csConfirm").onclick=doConfirmChange;
 
 /* ---------- toast ---------- */
 let toastT=null;
